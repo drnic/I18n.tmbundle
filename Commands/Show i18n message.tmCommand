@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+# Check in current line for I18n.t("vagrant.commands.up.vm_created")
+if ENV['TM_CURRENT_LINE'] =~ /I18n.t[^\w]+([\w\.]+)/
+  i18n_key = $1
+  all_project_locale_files = Dir[File.join(ENV['TM_PROJECT_DIRECTORY'], '**', 'locales', '*.yml')]
+  require "i18n"
+  all_project_locale_files.each { |file| I18n.load_path &lt;&lt; file }
+  print I18n.t(i18n_key)
+else
+  print "Try again on a line with I18n.t('some.key.notation')"
+end
+  </string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>~@?</string>
+	<key>name</key>
+	<string>Show i18n message</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>uuid</key>
+	<string>9BEB444E-7673-4549-AB5C-0FD72F563D14</string>
+</dict>
+</plist>
