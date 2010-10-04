@@ -5,6 +5,11 @@ Contains the following commands specific to the current file:
 
 * Show i18n message (Alt+Cmd+?) - Displays the translation of 'I18n.t("foo.bar.car")' from the current line
 
+Requirements
+============
+
+This bundle assumes you have the [i18n](http://github.com/svenfuchs/i18n "svenfuchs's i18n at master - GitHub") rubygem installed. This is a fair assumption, I think, since you are working on projects using it.
+
 Installation
 ============
 
