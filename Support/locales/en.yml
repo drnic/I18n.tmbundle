@@ -1,0 +1,5 @@
+en :
+  i18n:
+    error:
+      no_locales_files_found: "Cannot find any locales files in project, such as .../locales/en.yml"
+      no_locales_mentioned_on_line: "Try again on a line with I18n.t('some.key.notation')"

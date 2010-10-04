@@ -7,17 +7,12 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 
-# Check in current line for I18n.t("vagrant.commands.up.vm_created")
-if ENV['TM_CURRENT_LINE'] =~ /I18n.t[^\w]+([\w\.]+)/
-  i18n_key = $1
-  all_project_locale_files = Dir[File.join(ENV['TM_PROJECT_DIRECTORY'], '**', 'locales', '*.yml')]
-  require "i18n"
-  all_project_locale_files.each { |file| I18n.load_path &lt;&lt; file }
-  print I18n.t(i18n_key)
-else
-  print "Try again on a line with I18n.t('some.key.notation')"
-end
-  </string>
+$:.unshift(ENV['TM_BUNDLE_SUPPORT'] + "/lib")
+require 'rubygems'
+require 'show_i18n_message'
+
+print ShowI18nMessage.display_message(ENV['TM_CURRENT_LINE'], ENV['TM_PROJECT_DIRECTORY'])
+</string>
 	<key>input</key>
 	<string>document</string>
 	<key>keyEquivalent</key>
