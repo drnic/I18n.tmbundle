@@ -5,6 +5,8 @@ Contains the following commands specific to the current file:
 
 * Show i18n message (Alt+Cmd+?) - Displays the translation of 'I18n.t("foo.bar.car")' from the current line
 
+<img src="http://img.skitch.com/20101004-1jkggrqygkhberirm5cq7c7p7i.jpg" width="100%" />
+
 Requirements
 ============
 
