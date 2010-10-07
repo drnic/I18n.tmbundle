@@ -17,7 +17,8 @@ module ShowI18nMessage
         mem
       end
       I18n.locale, I18n.load_path = original_locale, original_load_path
-      messages.inject([]) { |list, pair| locale, string = pair; list << "#{locale}: #{string}" }.join("\n")
+      locale_messages = messages.inject([]) { |list, pair| locale, string = pair; list << "#{locale}: #{string}" }
+      locale_messages.sort.join("\n")
     else
       I18n.t("i18n.error.no_locales_mentioned_on_line")
     end
